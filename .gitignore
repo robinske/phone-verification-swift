@@ -1,0 +1,14 @@
+Keys.plist
+
+.DS_Store
+*.swp
+*~.nib
+
+build/
+
+*.pbxuser
+*.perspective
+*.perspectivev3
+
+phoneverification.xcodeproj/xcuserdata/*
+phoneverification.xcodeproj/project.xcworkspace/xcuserdata/*
