@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  phoneverification
+//  Phone Verification
 //
-//  Created by Kelley Robinson on 2/16/18.
+//  Created by Kelley Robinson on 7/3/18.
 //  Copyright © 2018 krobs. All rights reserved.
 //
 

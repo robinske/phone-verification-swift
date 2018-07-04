@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:phoneverification.xcodeproj">
+      location = "self:Phone Verification.xcodeproj">
    </FileRef>
 </Workspace>

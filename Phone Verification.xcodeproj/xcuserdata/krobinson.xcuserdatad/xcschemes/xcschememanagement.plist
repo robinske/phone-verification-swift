@@ -2,7 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>apiKey</key>
-	<string>your-api-key-here</string>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Phone Verification.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
 </dict>
 </plist>

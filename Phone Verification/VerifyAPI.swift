@@ -1,6 +1,14 @@
+//
+//  VerifyAPI.swift
+//  Phone Verification
+//
+//  Created by Kelley Robinson on 7/3/18.
+//  Copyright © 2018 krobs. All rights reserved.
+//
+
 import Foundation
 
-enum AuthyError: Error {
+enum VerifyError: Error {
     case invalidUrl
     case err(String)
 }
@@ -10,7 +18,7 @@ protocol WithMessage {
     var message: String { get }
 }
 
-enum AuthyResult {
+enum VerifyResult {
     case success(WithMessage)
     case failure(Error)
 }
@@ -32,9 +40,7 @@ struct CheckResult: Codable, WithMessage {
 }
 
 
-
-
-struct AuthyAPI {
+struct VerifyAPI {
     private static let baseURLString = "https://api.authy.com/protected/json"
     
     static let path = Bundle.main.path(forResource: "Keys", ofType: "plist")
@@ -44,7 +50,7 @@ struct AuthyAPI {
     static func createRequest(_ path: String,
                               _ method: String,
                               _ parameters: [String: String],
-                              completionHandler: @escaping (_ result: Data) -> AuthyResult) {
+                              completionHandler: @escaping (_ result: Data) -> VerifyResult) {
         
         let urlPath = "\(baseURLString)/\(path)"
         var components = URLComponents(string: urlPath)!
@@ -81,27 +87,26 @@ struct AuthyAPI {
         task.resume()
     }
     
-    static func sendVerificationCode(_ phoneNumber: String) {
+    static func sendVerificationCode(_ countryCode: String, _ phoneNumber: String) {
         let parameters = [
             "api_key": apiKey,
             "via": "sms",
-            "country_code": "1",
+            "country_code": countryCode,
             "phone_number": phoneNumber
         ]
         
         createRequest("phones/verification/start", "POST", parameters) {
             json in
-            print(json)
             return .success(DataResult(data: json))
         }
     }
     
-    static func validateVerificationCode(_ phoneNumber: String, _ code: String, segue: @escaping (CheckResult) -> Void) {
+    static func validateVerificationCode(_ countryCode: String, _ phoneNumber: String, _ code: String, segue: @escaping (CheckResult) -> Void) {
         
         let parameters = [
             "api_key": apiKey,
             "via": "sms",
-            "country_code": "1",
+            "country_code": countryCode,
             "phone_number": phoneNumber,
             "verification_code": code
         ]
@@ -115,11 +120,10 @@ struct AuthyAPI {
                 DispatchQueue.main.async(execute: {
                     segue(checked)
                 })
-                return AuthyResult.success(checked)
+                return VerifyResult.success(checked)
             } catch {
-                return AuthyResult.failure(AuthyError.err("failed to deserialize"))
+                return VerifyResult.failure(VerifyError.err("failed to deserialize"))
             }
         }
     }
 }
-
