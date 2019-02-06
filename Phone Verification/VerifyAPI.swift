@@ -41,14 +41,11 @@ struct CheckResult: Codable, WithMessage {
 
 
 struct VerifyAPI {
-    private static let baseURLString = "https://api.authy.com/protected/json"
-    
-    static let path = Bundle.main.path(forResource: "Keys", ofType: "plist")
-    static let keys = NSDictionary(contentsOfFile: path!)
-    static let apiKey = keys!["apiKey"] as! String
+    static let path = Bundle.main.path(forResource: "Config", ofType: "plist")
+    static let config = NSDictionary(contentsOfFile: path!)
+    private static let baseURLString = config!["serverUrl"] as! String
     
     static func createRequest(_ path: String,
-                              _ method: String,
                               _ parameters: [String: String],
                               completionHandler: @escaping (_ result: Data) -> VerifyResult) {
         
@@ -67,8 +64,7 @@ struct VerifyAPI {
         let url = components.url!
         
         var request = URLRequest(url: url)
-        request.addValue(apiKey, forHTTPHeaderField: "X-Authy-API-Key")
-        request.httpMethod = method
+        request.httpMethod = "POST"
         
         let session: URLSession = {
             let config = URLSessionConfiguration.default
@@ -89,13 +85,12 @@ struct VerifyAPI {
     
     static func sendVerificationCode(_ countryCode: String, _ phoneNumber: String) {
         let parameters = [
-            "api_key": apiKey,
             "via": "sms",
             "country_code": countryCode,
             "phone_number": phoneNumber
         ]
         
-        createRequest("phones/verification/start", "POST", parameters) {
+        createRequest("start", parameters) {
             json in
             return .success(DataResult(data: json))
         }
@@ -104,14 +99,13 @@ struct VerifyAPI {
     static func validateVerificationCode(_ countryCode: String, _ phoneNumber: String, _ code: String, segue: @escaping (CheckResult) -> Void) {
         
         let parameters = [
-            "api_key": apiKey,
             "via": "sms",
             "country_code": countryCode,
             "phone_number": phoneNumber,
             "verification_code": code
         ]
         
-        createRequest("phones/verification/check", "GET", parameters) {
+        createRequest("check", parameters) {
             jsonData in
             
             let decoder = JSONDecoder()

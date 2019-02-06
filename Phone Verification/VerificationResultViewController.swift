@@ -15,9 +15,6 @@ class VerificationResultViewController: UIViewController {
     var successMessage: String?
     
     override func viewDidLoad() {
-        print("viewWillAppear")
-        print(successMessage)
-        
         if let resultToDisplay = successMessage {
             successIndication.text = resultToDisplay
         } else {

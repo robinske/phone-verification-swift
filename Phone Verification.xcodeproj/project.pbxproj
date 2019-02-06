@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F33608DB220B7BCE00EB291A /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = F33608DA220B7BCE00EB291A /* Config.plist */; };
 		F35DC5E220EC3B4E0057E993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35DC5E120EC3B4E0057E993 /* AppDelegate.swift */; };
 		F35DC5E720EC3B4E0057E993 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35DC5E520EC3B4E0057E993 /* Main.storyboard */; };
 		F35DC5E920EC3B4E0057E993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35DC5E820EC3B4E0057E993 /* Assets.xcassets */; };
 		F35DC5EC20EC3B4E0057E993 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35DC5EA20EC3B4E0057E993 /* LaunchScreen.storyboard */; };
-		F35DC5F420EC3BB00057E993 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F35DC5F320EC3BB00057E993 /* Keys.plist */; };
 		F35DC5FC20EC4C960057E993 /* StartVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35DC5FB20EC4C960057E993 /* StartVerificationViewController.swift */; };
 		F35DC5FE20EC4CA20057E993 /* CheckVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35DC5FD20EC4CA20057E993 /* CheckVerificationViewController.swift */; };
 		F35DC60020EC4CAC0057E993 /* VerificationResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35DC5FF20EC4CAC0057E993 /* VerificationResultViewController.swift */; };
@@ -19,13 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F33608DA220B7BCE00EB291A /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		F35DC5DE20EC3B4E0057E993 /* Phone Verification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Phone Verification.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35DC5E120EC3B4E0057E993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F35DC5E620EC3B4E0057E993 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F35DC5E820EC3B4E0057E993 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F35DC5EB20EC3B4E0057E993 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F35DC5ED20EC3B4E0057E993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F35DC5F320EC3BB00057E993 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		F35DC5FB20EC4C960057E993 /* StartVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVerificationViewController.swift; sourceTree = "<group>"; };
 		F35DC5FD20EC4CA20057E993 /* CheckVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVerificationViewController.swift; sourceTree = "<group>"; };
 		F35DC5FF20EC4CAC0057E993 /* VerificationResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationResultViewController.swift; sourceTree = "<group>"; };
@@ -62,11 +62,11 @@
 		F35DC5E020EC3B4E0057E993 /* Phone Verification */ = {
 			isa = PBXGroup;
 			children = (
-				F35DC5F320EC3BB00057E993 /* Keys.plist */,
 				F35DC5E120EC3B4E0057E993 /* AppDelegate.swift */,
 				F35DC5FB20EC4C960057E993 /* StartVerificationViewController.swift */,
 				F35DC5FD20EC4CA20057E993 /* CheckVerificationViewController.swift */,
 				F35DC60120EC4DE40057E993 /* VerifyAPI.swift */,
+				F33608DA220B7BCE00EB291A /* Config.plist */,
 				F35DC5FF20EC4CAC0057E993 /* VerificationResultViewController.swift */,
 				F35DC5E520EC3B4E0057E993 /* Main.storyboard */,
 				F35DC5E820EC3B4E0057E993 /* Assets.xcassets */,
@@ -135,9 +135,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F35DC5F420EC3BB00057E993 /* Keys.plist in Resources */,
 				F35DC5EC20EC3B4E0057E993 /* LaunchScreen.storyboard in Resources */,
 				F35DC5E920EC3B4E0057E993 /* Assets.xcassets in Resources */,
+				F33608DB220B7BCE00EB291A /* Config.plist in Resources */,
 				F35DC5E720EC3B4E0057E993 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

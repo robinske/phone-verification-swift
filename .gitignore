@@ -1,4 +1,5 @@
 Keys.plist
+Config.plist
 
 .DS_Store
 *.swp
@@ -9,6 +10,8 @@ build/
 *.pbxuser
 *.perspective
 *.perspectivev3
+
+IDEWorkspaceChecks.plist
 
 phoneverification.xcodeproj/xcuserdata/*
 phoneverification.xcodeproj/project.xcworkspace/xcuserdata/*
